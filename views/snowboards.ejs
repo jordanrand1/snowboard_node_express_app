@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <% include ./partials/head %>
+ </head>
+ <body class="background">
+   <header>
+     <% include ./partials/nav %>
+   </header>
+   <h1 class='center'>My Snowboards</h1>
+   <hr />
+   <div class='row'>
+     <div class='col s12 m4'>
+       <h3>Add Snowboard</h3>
+       <form action='/snowboards' method='post'>
+         <input type='text' name='brand' placeholder='Brand' />
+         <input type='text' name='name' placeholder='Name' />
+         <input type='text' name='price' placeholder='Price' />
+         <input type='text' name='description' placeholder='Description' />
+         <button class='btn btn-waves' type='submit'>Add</button>
+       </form>
+     </div>
+     <table class='table col m8 s12'>
+        <thead>
+          <th>Brand</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Edit</th>
+          <th>x</th>
+        </thead>
+
+       <tbody>
+         <% snowboards.forEach( function(snowboard) { %>
+          <% var url = "/snowboards/" + snowboard.id + "?_method=DELETE" %>
+          <% var editUrl = "/snowboards/" + snowboard.id + "/edit" %>
+            <tr>
+              <td><%= snowboard.brand %></td>
+              <td><%= snowboard.name %></td>
+              <td><%= snowboard.price %></td>
+              <td><%= snowboard.description %></td>
+              <td>
+                <a class="btn" href=<%= editUrl %>>Edit</a>
+              </td>
+              <td>
+                <form method="POST" action=<%= url %>>
+                  <button class="btn red">Delete</button>
+                </form>
+              </td>
+            </tr>
+         <% }); %>
+       </tbody>
+     </table>
+   </body>
+</html>

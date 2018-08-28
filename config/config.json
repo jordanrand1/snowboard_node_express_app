@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "blackboymart",
+    "password": null,
+    "database": "snowboards_dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
