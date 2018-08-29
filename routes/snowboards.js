@@ -38,10 +38,6 @@ router.post('/', function(req, res) {
       price: price,
       description: description
     }
-    // { brand: brand },
-    // { name: name },
-    // { price: price },
-    // { description: description }
   )
     .then( function() {
       res.redirect('/snowboards');
